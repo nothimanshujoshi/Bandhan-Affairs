@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bandhan Affairs | Luxury Wedding & Event Planning</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ================= VARIABLES & RESETS ================= */
+        :root {
+            --primary: #C8A97E;
+            --secondary: #1F1F1F;
+            --bg: #FAF7F2;
+            --accent: #8B5E3C;
+            --white: #FFFFFF;
+            --font-head: 'Playfair Display', serif; /* Cinzel also loaded as fallback */
+            --font-body: 'Poppins', sans-serif;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg);
+            color: var(--secondary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-head);
+            font-weight: 600;
+            color: var(--secondary);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* ================= REUSABLE UTILITIES ================= */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--accent);
+            font-size: 1.1rem;
+            margin-bottom: 50px;
+            font-style: italic;
+            font-family: var(--font-head);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            font-family: var(--font-body);
+            font-weight: 500;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent);
+            box-shadow: 0 0 15px rgba(200, 169, 126, 0.6);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--white);
+            border-color: var(--white);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--white);
+            color: var(--secondary);
+        }
+
+        /* Scroll Animation Class */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ================= NAVBAR ================= */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(250, 247, 242, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 0;
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            padding: 10px 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-head);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* ================= 1. HERO SECTION ================= */
+        #hero {
+            height: 100vh;
+            background: linear-gradient(rgba(31, 31, 31, 0.6), rgba(31, 31, 31, 0.6)), url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=2069&auto=format&fit=crop') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            color: var(--white);
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        /* ================= 2. TRUST BAR ================= */
+        #trust-bar {
+            background-color: var(--secondary);
+            color: var(--primary);
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        #trust-bar h4 {
+            color: var(--white);
+            font-family: var(--font-body);
+            font-weight: 400;
+            font-size: 1rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .city-badges {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            font-family: var(--font-head);
+            font-size: 1.2rem;
+        }
+
+        /* ================= 3. ABOUT SECTION ================= */
+        #about {
+            background-color: var(--bg);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-img-wrapper {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .about-img-wrapper img {
+            transition: transform 0.5s ease;
+        }
+
+        .about-img-wrapper:hover img {
+            transform: scale(1.05);
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .about-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 500;
+        }
+
+        .about-list i {
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        /* ================= 4. SERVICES SECTION ================= */
+        #services {
+            background-color: var(--white);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: var(--bg);
+            padding: 40px 30px;
+            border-radius: 8px;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(200, 169, 126, 0.2);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        /* ================= 5. WHY CHOOSE US ================= */
+        #why-us {
+            background-color: var(--bg);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .feature-block i {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+
+        .feature-block h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        /* ================= 6. PORTFOLIO ================= */
+        #portfolio {
+            background-color: var(--white);
+        }
+
+        .portfolio-filters {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 1px solid var(--primary);
+            padding: 8px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-family: var(--font-body);
+            color: var(--secondary);
+            transition: var(--transition);
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            aspect-ratio: 4/3;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* ================= 7. PROCESS SECTION ================= */
+        #process {
+            background-color: var(--bg);
+        }
+
+        .process-timeline {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .process-timeline::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary);
+            z-index: 1;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            width: 18%;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background-color: var(--white);
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-family: var(--font-head);
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent);
+            transition: var(--transition);
+        }
+
+        .process-step:hover .step-number {
+            background-color: var(--primary);
+            color: var(--white);
+            box-shadow: 0 0 15px var(--primary);
+        }
+
+        /* ================= 8. TESTIMONIALS ================= */
+        #testimonials {
+            background-color: var(--white);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background-color: var(--bg);
+            padding: 40px;
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .testimonial-card i.fa-quote-left {
+            font-size: 2rem;
+            color: var(--primary);
+            opacity: 0.3;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .client-name {
+            font-family: var(--font-head);
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* ================= 9. CITIES WE SERVE ================= */
+        #cities {
+            background-color: var(--bg);
+        }
+
+        .cities-grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .city-card {
+            background-color: var(--white);
+            padding: 20px 40px;
+            border-radius: 8px;
+            border: 1px solid #eee;
+            font-family: var(--font-head);
+            font-size: 1.2rem;
+            color: var(--accent);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .city-card:hover {
+            background-color: var(--primary);
+            color: var(--white);
+            transform: translateY(-5px);
+        }
+
+        /* ================= 10. CTA SECTION ================= */
+        #cta {
+            background-color: var(--secondary);
+            color: var(--white);
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        #cta h2 {
+            color: var(--primary);
+            font-size: 3rem;
+            margin-bottom: 30px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn-whatsapp {
+            background-color: #25D366;
+            color: white;
+        }
+        .btn-whatsapp:hover {
+            background-color: #128C7E;
+            box-shadow: 0 0 15px #25D366;
+        }
+
+        /* ================= 11. CONTACT SECTION ================= */
+        #contact {
+            background-color: var(--white);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info {
+            padding: 40px;
+            background-color: var(--bg);
+            border-radius: 8px;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .info-item i {
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .social-icons a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .social-icons a:hover {
+            background-color: var(--secondary);
+        }
+
+        .contact-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .contact-form label {
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .contact-form input, 
+        .contact-form select, 
+        .contact-form textarea {
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: var(--font-body);
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .contact-form input:focus, 
+        .contact-form select:focus, 
+        .contact-form textarea:focus {
+            border-color: var(--primary);
+        }
+
+        /* ================= 12. FOOTER ================= */
+        footer {
+            background-color: var(--secondary);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-family: var(--font-head);
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .footer-col h4 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-family: var(--font-head);
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        /* ================= RESPONSIVE DESIGN ================= */
+        @media (max-width: 992px) {
+            .hero-content h1 { font-size: 2.8rem; }
+            .process-timeline { flex-direction: column; gap: 30px; }
+            .process-timeline::before {
+                top: 0; left: 40px; width: 2px; height: 100%;
+            }
+            .process-step { width: 100%; display: flex; align-items: center; text-align: left; gap: 20px; }
+            .step-number { margin: 0; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; /* Mobile menu requires JS/Checkbox hack, keeping it clean for prompt */ }
+            .about-grid, .contact-grid { grid-template-columns: 1fr; }
+            .hero-content h1 { font-size: 2.2rem; }
+            .section-padding { padding: 50px 0; }
+            .contact-form { grid-template-columns: 1fr; }
+            .form-group { grid-column: 1 / -1; }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="header">
+        <div class="container nav-container">
+            <a href="#" class="logo">Bandhan Affairs</a>
+            <nav class="nav-links">
+                <a href="#hero">Home</a>
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#cities">Cities</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div class="container hero-content reveal">
+            <h1>Turning Your Dream Celebrations Into Timeless Memories</h1>
+            <p>Luxury wedding & event planning across North India.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">Plan Your Event</a>
+                <a href="#portfolio" class="btn btn-outline">View Our Work</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="trust-bar">
+        <div class="container">
+            <h4>Trusted Event Planners Across 5 Cities</h4>
+            <div class="city-badges">
+                <span>Dehradun</span> &bull; 
+                <span>Delhi</span> &bull; 
+                <span>Chandigarh</span> &bull; 
+                <span>Rishikesh</span> &bull; 
+                <span>Haldwani</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section-padding">
+        <div class="container about-grid reveal">
+            <div class="about-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2070&auto=format&fit=crop" alt="Luxury Wedding Setup">
+            </div>
+            <div class="about-text">
+                <h2>Who We Are</h2>
+                <p>Bandhan Affairs is a luxury wedding and event planning company dedicated to crafting unforgettable celebrations. From intimate ceremonies to grand destination weddings, we handle every detail with elegance and precision.</p>
+                <ul class="about-list">
+                    <li><i class="fa-solid fa-check-circle"></i> End-to-end event planning</li>
+                    <li><i class="fa-solid fa-check-circle"></i> Creative theme & décor design</li>
+                    <li><i class="fa-solid fa-check-circle"></i> Vendor management</li>
+                    <li><i class="fa-solid fa-check-circle"></i> Stress-free execution</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="section-padding">
+        <div class="container reveal">
+            <h2 class="section-title">Our Services</h2>
+            <p class="section-subtitle">Exquisite planning for your special occasions</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fa-solid fa-rings-wedding service-icon"></i>
+                    <h3>Wedding Planning</h3>
+                    <p>Comprehensive planning for the big fat Indian wedding of your dreams.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fa-solid fa-map-location-dot service-icon"></i>
+                    <h3>Destination Weddings</h3>
+                    <p>Exotic locations and seamless travel logistics for your guests.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fa-solid fa-music service-icon"></i>
+                    <h3>Pre-Wedding Functions</h3>
+                    <p>Vibrant Haldi, Mehndi, and Sangeet nights filled with joy.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fa-solid fa-cake-candles service-icon"></i>
+                    <h3>Birthday & Anniversaries</h3>
+                    <p>Milestone celebrations curated with personalized touches.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fa-solid fa-briefcase service-icon"></i>
+                    <h3>Corporate Events</h3>
+                    <p>Professional and engaging setups for your business milestones.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fa-solid fa-palette service-icon"></i>
+                    <h3>Decor & Theme Design</h3>
+                    <p>Bespoke visual concepts that reflect your unique personality.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="why-us" class="section-padding">
+        <div class="container reveal">
+            <h2 class="section-title">Why Choose Us</h2>
+            <p class="section-subtitle">The Bandhan Affairs Promise</p>
+            
+            <div class="features-grid">
+                <div class="feature-block">
+                    <i class="fa-solid fa-heart"></i>
+                    <h4>Personalized Planning</h4>
+                    <p>Every event is tailored to your vision.</p>
+                </div>
+                <div class="feature-block">
+                    <i class="fa-solid fa-lightbulb"></i>
+                    <h4>Creative Concepts</h4>
+                    <p>Unique themes that stand out.</p>
+                </div>
+                <div class="feature-block">
+                    <i class="fa-solid fa-handshake"></i>
+                    <h4>Trusted Vendor Network</h4>
+                    <p>Partnerships with the best in the industry.</p>
+                </div>
+                <div class="feature-block">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    <h4>Seamless Execution</h4>
+                    <p>Sit back, relax, and enjoy your day.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="section-padding">
+        <div class="container reveal">
+            <h2 class="section-title">Our Portfolio</h2>
+            <p class="section-subtitle">Glimpses of our magical celebrations</p>
+            
+            <div class="portfolio-filters">
+                <button class="filter-btn active">All</button>
+                <button class="filter-btn">Weddings</button>
+                <button class="filter-btn">Decor</button>
+                <button class="filter-btn">Corporate</button>
+                <button class="filter-btn">Pre-Wedding</button>
+            </div>
+
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069&auto=format&fit=crop" alt="Wedding">
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=2070&auto=format&fit=crop" alt="Decor">
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?q=80&w=2069&auto=format&fit=crop" alt="Event">
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=2070&auto=format&fit=crop" alt="Pre-wedding">
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1478146059778-26028b07395a?q=80&w=2000&auto=format&fit=crop" alt="Corporate">
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070&auto=format&fit=crop" alt="Decor">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="process" class="section-padding">
+        <div class="container reveal">
+            <h2 class="section-title">How We Work</h2>
+            <p class="section-subtitle">Your journey to a perfect event</p>
+            
+            <div class="process-timeline">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h4>Consultation</h4>
+                    <p>Understanding your vision</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h4>Planning & Design</h4>
+                    <p>Creating the blueprint</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h4>Vendor Coordination</h4>
+                    <p>Assembling the best team</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h4>Execution</h4>
+                    <p>Bringing dreams to life</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <h4>Celebration 🎉</h4>
+                    <p>Making memories</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="section-padding">
+        <div class="container reveal">
+            <h2 class="section-title">Client Love</h2>
+            <p class="section-subtitle">What our couples and clients say</p>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <i class="fa-solid fa-quote-left"></i>
+                    <p>“Bandhan Affairs made our wedding absolutely magical. Every detail was handled perfectly, leaving us stress-free!”</p>
+                    <h5 class="client-name">- Priya & Rahul</h5>
+                </div>
+                <div class="testimonial-card">
+                    <i class="fa-solid fa-quote-left"></i>
+                    <p>“The decor was exactly what we envisioned. Royal, elegant, and timeless. Highly recommended in Dehradun.”</p>
+                    <h5 class="client-name">- Sneha Sharma</h5>
+                </div>
+                <div class="testimonial-card">
+                    <i class="fa-solid fa-quote-left"></i>
+                    <p>“Organized our corporate gala seamlessly. Professional, creative, and completely reliable team.”</p>
+                    <h5 class="client-name">- TechCorp India</h5>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cities" class="section-padding">
+        <div class="container reveal">
+            <h2 class="section-title">Locations We Serve</h2>
+            <p class="section-subtitle">Bringing luxury events to your city</p>
+            
+            <div class="cities-grid">
+                <div class="city-card">Dehradun</div>
+                <div class="city-card">Delhi</div>
+                <div class="city-card">Chandigarh</div>
+                <div class="city-card">Rishikesh</div>
+                <div class="city-card">Haldwani</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cta">
+        <div class="container reveal">
+            <h2>Let’s Start Planning Your Dream Event</h2>
+            <div class="cta-buttons">
+                <a href="tel:+910000000000" class="btn btn-primary"><i class="fa-solid fa-phone"></i> Call Now</a>
+                <a href="https://wa.me/910000000000" target="_blank" class="btn btn-whatsapp"><i class="fa-brands fa-whatsapp"></i> WhatsApp Us</a>
+                <a href="#contact" class="btn btn-outline"><i class="fa-solid fa-calendar-check"></i> Get Free Consultation</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section-padding">
+        <div class="container reveal">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-subtitle">We would love to hear from you</p>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="info-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>bandhanaffairs@gmail.com</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>+91 98765 43210</span>
+                    </div>
+                    
+                    <div class="social-icons">
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" placeholder="Your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone</label>
+                        <input type="tel" placeholder="Your phone number" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Event Type</label>
+                        <select required>
+                            <option value="">Select Event Type</option>
+                            <option value="Wedding">Wedding</option>
+                            <option value="Pre-Wedding">Pre-Wedding (Haldi/Mehndi)</option>
+                            <option value="Corporate">Corporate Event</option>
+                            <option value="Birthday">Birthday / Anniversary</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Event City</label>
+                        <select required>
+                            <option value="">Select City</option>
+                            <option value="Dehradun">Dehradun</option>
+                            <option value="Delhi">Delhi</option>
+                            <option value="Chandigarh">Chandigarh</option>
+                            <option value="Rishikesh">Rishikesh</option>
+                            <option value="Haldwani">Haldwani</option>
+                        </select>
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Event Date</label>
+                        <input type="date" required>
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Message</label>
+                        <textarea rows="4" placeholder="Tell us about your dream event..." required></textarea>
+                    </div>
+                    <div class="form-group full-width">
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Enquiry</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">Bandhan Affairs</div>
+                    <p>Turning Your Dream Celebrations Into Timeless Memories across North India.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Cities We Serve</h4>
+                    <ul>
+                        <li>Dehradun</li>
+                        <li>Delhi</li>
+                        <li>Chandigarh</li>
+                        <li>Rishikesh</li>
+                        <li>Haldwani</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <ul>
+                        <li><i class="fa-solid fa-envelope"></i> bandhanaffairs@gmail.com</li>
+                        <li><i class="fa-brands fa-instagram"></i> @bandhanaffairs</li>
+                        <li><i class="fa-brands fa-youtube"></i> Bandhan Affairs</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 Bandhan Affairs. All Rights Reserved. Designed for Luxury Events.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Sticky Navbar shadow effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Fade-in on scroll (Intersection Observer)
+        const reveals = document.querySelectorAll('.reveal');
+        
+        const revealOptions = {
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    return;
+                } else {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, revealOptions);
+
+        reveals.forEach(reveal => {
+            revealOnScroll.observe(reveal);
+        });
+    </script>
+</body>
+</html>
